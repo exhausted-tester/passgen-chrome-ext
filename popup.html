@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Generator</h1>
+      <input type="text" id="password" readonly />
+      <div>
+        <label for="password-length">Password Length</label>
+        <input
+          type="number"
+          id="password-length-input"
+          min="1"
+          max="50"
+          value="12"
+          readonly
+        />
+        <!-- New input field -->
+        <input type="range" id="length" min="1" max="50" value="12" />
+        <span id="length-value">12</span>
+      </div>
+      <div>
+        <label for="uppercase"
+          ><input type="checkbox" id="uppercase" checked /> Uppercase</label
+        >
+        <label for="lowercase"
+          ><input type="checkbox" id="lowercase" checked /> Lowercase</label
+        >
+        <label for="numbers"
+          ><input type="checkbox" id="numbers" checked /> Numbers</label
+        >
+        <label for="symbols"
+          ><input type="checkbox" id="symbols" checked /> Symbols</label
+        >
+        <div
+          id="info-message"
+          style="
+            color: #fa00a7;
+            font-size: 16px;
+            text-align: center;
+            display: none;
+          "
+        >
+          Please select at least one checkbox.
+        </div>
+      </div>
+      <button id="generate">Generate</button>
+      <button id="copy">Copy</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

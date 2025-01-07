@@ -1,0 +1,97 @@
+body {
+  font-family: monospace, sans-serif;
+  text-align: center;
+  width: 600px; /* Set popup width */
+  height: 550px; /* Set popup height */
+  padding: 20px;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+  max-width: 750px; /* Make the container narrower than the body */
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-family: Monospace;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #be0681;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Add cursor pointer for range slider */
+input[type="range"] {
+  width: 80%;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="range"] {
+  width: 80%;
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+  margin: 8px 0px;
+  font-size: 20px;
+  text-align: left;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: default; /* Cursor indicates disabled */
+}
+
+button:disabled:hover {
+  background-color: #ccc; /* Ensure no color change on hover */
+
+  cursor: default; /* Keep cursor as not-allowed */
+}
+
+#info-message {
+  color: #be0681;
+  font-size: 14px;
+  margin: 15px auto; /* Center horizontally */
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+label[for="uppercase"],
+label[for="lowercase"],
+label[for="numbers"],
+label[for="symbols"] {
+  cursor: pointer;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
