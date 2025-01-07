@@ -1,23 +1,25 @@
 // Function to generate the password
+const CHAR_SETS = {
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  numbers: "0123456789",
+  symbols: "!@#$%^&*()_+[]{}|;:,.<>?",
+};
+
+// Generate the password
 function generatePassword(length, options) {
-  const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const lower = "abcdefghijklmnopqrstuvwxyz";
-  const numbers = "0123456789";
-  const symbols = "!@#$%^&*()_+[]{}|;:,.<>?";
+  const selectedCharSets = Object.keys(CHAR_SETS)
+    .filter((key) => options[key])
+    .map((key) => CHAR_SETS[key])
+    .join("");
 
-  let characters = "";
-  if (options.uppercase) characters += upper;
-  if (options.lowercase) characters += lower;
-  if (options.numbers) characters += numbers;
-  if (options.symbols) characters += symbols;
-
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    password += characters.charAt(
-      Math.floor(Math.random() * characters.length)
-    );
+  if (!selectedCharSets) {
+    throw new Error("At least one character type must be selected.");
   }
-  return password;
+
+  return Array.from({ length }, () =>
+    selectedCharSets.charAt(Math.floor(Math.random() * selectedCharSets.length))
+  ).join("");
 }
 
 function checkCheckboxes() {
@@ -41,7 +43,6 @@ function checkCheckboxes() {
   }
 }
 
-// Function to update the displayed password
 function updatePassword() {
   const length = parseInt(document.getElementById("length").value, 10);
   const options = {
@@ -121,9 +122,8 @@ document.getElementById("copy").addEventListener("click", function () {
   navigator.clipboard
     .writeText(password)
     .then(() => {
-      // Change the button text to "Copied!"
       copyButton.textContent = "Copied!";
-      copyButton.disabled = true; // Optionally disable the button temporarily
+      copyButton.disabled = true;
 
       // Revert to the original text after 3 seconds
       setTimeout(() => {
@@ -136,7 +136,6 @@ document.getElementById("copy").addEventListener("click", function () {
     });
 });
 
-// Automatically generate a password when the page loads
 window.onload = function () {
   document.getElementById("length").value = 12;
   document.getElementById("password-length-input").value = 12;
